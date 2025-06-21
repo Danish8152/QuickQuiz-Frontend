@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickQuiz - Test Your Knowledge</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="home-page-landing">
+        <!-- Login Modal -->
+        <!-- <div class="login-modal" id="loginModal">
+            <div class="login-content">
+                <button class="login-close" onclick="closeLoginModal()">✖</button>
+                <div class="login-header">
+                    <h3 class="login-title">Welcome to QuickQuiz</h3>
+                    <p>Log in or sign up to continue</p>
+                </div>
+                <div class="login-tabs">
+                    <div class="login-tab active" onclick="switchLoginTab('login')">Login</div>
+                    <div class="login-tab" onclick="switchLoginTab('signup')">Sign Up</div>
+                </div>
+                <div class="login-form active">
+                    <input type="email" class="login-input" placeholder="Email address" required>
+                    <input type="password" class="login-input" placeholder="Password" required>
+                    <div style="text-align: right; margin-bottom: 1rem;">
+                        <a href="#" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;">Forgot password?</a>
+                    </div>
+                    <button class="login-button">Login</button>
+                </div>
+                <div class="signup-form">
+                    <input type="text" class="login-input" placeholder="Full name" required>
+                    <input type="email" class="login-input" placeholder="Email address" required>
+                    <input type="password" class="login-input" placeholder="Password" required>
+                    <input type="password" class="login-input" placeholder="Confirm password" required>
+                    <button class="login-button">Sign Up</button>
+                </div>
+            </div>
+        </div> -->
+
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#Home">
+                    <img class="nav-logo" src="Logo.png" alt="QuickQuiz Logo" />
+                </a>
+            </div>
+
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="bi bi-list"></i>
+            </div>
+
+            <div class="nav-main-menu" id="mainMenu">
+                <ul class="list-menu">
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#Categories">Categories</a></li>
+                    <li><a href="#Challenge">Challenge</a></li>
+                    <li><a href="#aboutus">About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="right-menu">
+                <button class="log-bt" onclick="loginredirect()">Login / Sign Up</button>
+                <i id="themeIcon" class="bi bi-moon theme" onclick="switchTheme()"></i>
+                <i class="bi bi-person-circle profile" onclick="toggleProfile()"></i>
+            </div>
+        </nav>
+
+        <!-- Profile Slider -->
+        <!-- <div class="profile-panel" id="profilePanel">
+            <div class="profile-header">
+                <img src="/api/placeholder/120/120" alt="Profile Picture" class="profile-pic">
+                <div class="nam-emi">
+                    <h5 class="nam-emi-info">Danish</h5>
+                    <h5 class="nam-emi-info">@example.com</h5>
+                </div>
+                <button onclick="toggleProfile()" class="close-btn">✖</button>
+            </div>
+            <div class="profile-contant">
+                <ul class="profile-options">
+                    <li class="activity-1"><i class="bi bi-graph-up-arrow"></i><span class="label-1">Your Score</span></li>
+                    <li class="activity-1"><i class="bi bi-ui-checks-grid"></i><span class="label-1">My Quizzes</span></li>
+                    <li class="activity-1"><i class="bi bi-bar-chart-line"></i><span class="label-1">Performance</span></li>
+                    <li class="activity-1"><i class="bi bi-pencil-square"></i><span class="label-1">Create Quiz</span></li>
+                </ul>
+            </div>
+
+            <div class="logout-bt"><button onclick="logout()">Logout</button></div>
+        </div> -->
+
+        <section id="Home">
+            <div class="home-page-info">
+                <div class="Home-left" data-aos="fade-right">
+                    <h1 class="heading-1">Challenge Your Mind - Dive Into Exciting Quizzes 🎯🔥</h1>
+                    <p class="heading-2">
+                        Explore a world of fun and challenging quizzes across various topics. Test your knowledge, track your progress, 
+                        and see how you rank against other quiz enthusiasts. Keep learning, keep improving!
+                    </p>
+                    <button class="CTA-bt-1 pulse" type="button" onclick="loginredirect()">Start Quiz Now</button>
+                </div>
+                <div class="Home-image" data-aos="fade-left">
+                    <img src="Home page.png" alt="Quiz illustration" />
+                </div>
+            </div>
+        </section>
+
+        <section id="Categories">
+            <div class="quiz-section-info">
+                <h2 class="heading-3" data-aos="fade-up">📈 Trending Quizzes - Start Now!</h2>
+                <div class="categories-cont">
+                    <div class="slider" id="Puzzle" data-aos="fade-up" data-aos-delay="100">
+                        <h4 class="heading-4">Logic & Puzzle-Based</h4>
+                        <h5 class="heading-5">Category: Puzzle</h5>
+                        <button type="button" class="st-bt">Start Quiz Now</button>
+                    </div>
+
+                    <div class="slider" id="technology" data-aos="fade-up" data-aos-delay="200">
+                        <h4 class="heading-4">Technology & Innovation</h4>
+                        <h5 class="heading-5">Category: Technology</h5>
+                        <button type="button" class="st-bt" onclick="loginredirect()">Start Quiz Now</button>
+                    </div>
+
+                    <div class="slider" id="science" data-aos="fade-up" data-aos-delay="300">
+                        <h4 class="heading-4">Science & Space</h4>
+                        <h5 class="heading-5">Category: Science</h5>
+                        <button type="button" class="st-bt" onclick="loginredirect()">Start Quiz Now</button>
+                    </div>
+
+                    <div class="slider" id="entertainment" data-aos="fade-up" data-aos-delay="400">
+                        <h4 class="heading-4">Entertainment & Pop</h4>
+                        <h5 class="heading-5">Category: Entertainment</h5>
+                        <button type="button" class="st-bt" onclick="loginredirect()">Start Quiz Now</button>
+                    </div>
+
+                    <div class="slider" id="sports" data-aos="fade-up" data-aos-delay="500">
+                        <h4 class="heading-4">Sports & Fitness</h4>
+                        <h5 class="heading-5">Category: Sports</h5>
+                        <button type="button" class="st-bt" onclick="loginredirect()">Start Quiz Now</button>
+                    </div>
+
+                    <div class="slider" id="Cultural" data-aos="fade-up" data-aos-delay="600">
+                        <h4 class="heading-4">Cultural & Lifestyle</h4>
+                        <h5 class="heading-5">Category: Cultural</h5>
+                        <button type="button" class="st-bt" onclick="loginredirect()">Start Quiz Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="Challenge" class="py-5">
+            <div class="container">
+                <h2 class="heading-3" data-aos="fade-up">Daily Challenge 🏆</h2>
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="challenge-card p-4 rounded-lg bg-white shadow-lg dark-mode-bg">
+                            <div class="challenge-header d-flex justify-content-between align-items-center mb-4">
+                                <h3 class="m-0" style="color: var(--primary);">Today's Challenge</h3>
+                                <span class="badge bg-danger px-3 py-2">24:00:00</span>
+                            </div>
+                            <div class="challenge-details">
+                                <h4>General Knowledge Marathon</h4>
+                                <p>Test your knowledge across multiple categories in this timed challenge. Complete the quiz before the countdown ends!</p>
+                                <div class="d-flex justify-content-between align-items-center mt-4">
+                                    <div>
+                                        <span class="badge bg-secondary me-2">15 Questions</span>
+                                        <span class="badge bg-secondary">10 Minutes</span>
+                                    </div>
+                                    <button class="btn btn-primary px-4 py-2" style="background-color: var(--primary);">Take Challenge</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="leaderboard p-4 rounded-lg bg-white shadow-lg dark-mode-bg">
+                            <h3 class="mb-4" style="color: var(--primary);">Leaderboard</h3>
+                            <div class="leaderboard-item d-flex align-items-center mb-3 p-2 rounded" style="background-color: rgba(74,26,179,0.1);">
+                                <span class="position me-3">1</span>
+                                <img src="/api/placeholder/40/40" class="rounded-circle me-3" alt="User">
+                                <div>
+                                    <h5 class="m-0">Alex J.</h5>
+                                    <small>98 points</small>
+                                </div>
+                                <i class="bi bi-trophy-fill ms-auto" style="color: gold; font-size: 1.5rem;"></i>
+                            </div>
+                            <div class="leaderboard-item d-flex align-items-center mb-3 p-2 rounded" style="background-color: rgba(74,26,179,0.05);">
+                                <span class="position me-3">2</span>
+                                <img src="/api/placeholder/40/40" class="rounded-circle me-3" alt="User">
+                                <div>
+                                    <h5 class="m-0">Maria T.</h5>
+                                    <small>95 points</small>
+                                </div>
+                                <i class="bi bi-trophy-fill ms-auto" style="color: silver; font-size: 1.5rem;"></i>
+                            </div>
+                            <div class="leaderboard-item d-flex align-items-center p-2 rounded" style="background-color: rgba(74,26,179,0.05);">
+                                <span class="position me-3">3</span>
+                                <img src="/api/placeholder/40/40" class="rounded-circle me-3" alt="User">
+                                <div>
+                                    <h5 class="m-0">Danish R.</h5>
+                                    <small>92 points</small>
+                                </div>
+                                <i class="bi bi-trophy-fill ms-auto" style="color: #cd7f32; font-size: 1.5rem;"></i>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button class="btn btn-outline-primary" style="border-color: var(--primary); color: var(--primary);">View Full Leaderboard</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aboutus">
+            <div class="about-us-info">
+                <h4 class="heading-3" data-aos="fade-up">About Us - Learn, Play & Grow Together</h4>
+                <h5 class="heading-6" data-aos="fade-up">Empowering minds with engaging quizzes and interactive learning</h5>
+                <div class="about-content">
+                    <img class="About-img" src="aboutus.png" alt="About us illustration" data-aos="fade-right" />
+                    <div class="ab-right-con" data-aos="fade-left">
+                        <p class="ab-quickquiz-we">
+                            At QuickQuiz, we believe learning should be fun, engaging, and accessible to everyone. Our
+                            platform offers a wide range of interactive quizzes across various topics, from science and
+                            technology to entertainment and sports. Whether you're here to test your knowledge,
+                            challenge yourself, or discover something new, we provide a seamless and enjoyable
+                            experience that makes learning exciting.
+                            <br><br>
+                            With timed quizzes, progress tracking, and a variety of difficulty levels, QuickQuiz ensures
+                            an interactive learning experience tailored to your needs. Compete with friends, improve
+                            your skills, and explore new topics at your own pace. Our goal is to make education more
+                            enjoyable, engaging, and rewarding. Join us and start your journey of exploration today!
+                        </p>
+                        <button class="CTA-bt-1" onclick="Categories_redirect()">Start Quiz Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="Contact">
+            <div class="contact-left" data-aos="fade-right">
+                <div class="contact-us-info">
+                    <div class="mb-3">
+                        <h1 class="cont-headign">Contact Us</h1>
+                        <h4 class="cont-tagline">Get in Touch - We'd Love to Hear From You!</h4>
+                    </div>
+                    <div class="mb-3" id="cu-into-1">
+                        <i class="bi bi-telephone" id="telephone-sym"></i>
+                        <label for="telephone-sym">+91 9540848152</label>
+                    </div>
+                    <div class="mb-3" id="cu-into-2">
+                        <i class="bi bi-envelope" id="gmail-sym"></i>
+                        <label for="gmail-sym">help.quickquiz@gmail.com</label>
+                    </div>
+                    <div class="mb-3" id="cu-into-3">
+                        <i class="bi bi-geo-alt" id="location-sym"></i>
+                        <label for="location-sym">01/G-Town Faridabad India Earth</label>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-right" data-aos="fade-left">
+                <div class="contact-us-info">
+                    <form action="https://formsubmit.co/help.quickquiz@gmail.com" method="POST" class="contact-us-info">
+                        <div class="mb-3">
+                            <label class="form-label">First name<sup>*</sup></label>
+                            <input type="text" name="First Name" class="form-control" placeholder="First name"
+                                required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Last name</label>
+                            <input type="text" name="Last Name" class="form-control" placeholder="Last name" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email address<sup>*</sup></label>
+                            <input type="email" name="Email" class="form-control" placeholder="name@example.com"
+                                required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone no: <sup
+                                    style="font-size: x-small;">(Optional)</sup></label>
+                            <input type="text" name="Phone" class="form-control" placeholder="Phone number" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" name="Message" rows="3"
+                                placeholder="Describe Your Query"></textarea>
+                        </div>
+
+                        <!-- Anti-spam hidden field -->
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_template" value="table" />
+
+                        <div class="mb-3">
+                            <button class="btn btn-primary" type="submit" style="background-color: var(--primary);">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="bg-black footer-section">
+            <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+                <div class="md:flex md:justify-between">
+                    <div class="mb-6 md:mb-0 max-w-xs">
+                        <a href="#Home" class="flex items-center">
+                            <img src="Logo.png" class="h-8 mr-3" alt="QuickQuiz Logo" />
+                            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white"></span>
+                        </a>
+                        <p class="mt-3 text-gray-400">Test your knowledge, challenge friends, and learn something new every day with our interactive quiz platform.</p>
+                    </div>
+                    <div class="conttt">
+                        <div>
+                            <h2 class="mb-6 text-sm font-semibold text-white">Quick Links</h2>
+                            <ul class="text-gray-400 font-medium">
+                                <li class="mb-2">
+                                    <a href="#Home" class="hover:underline text-white">Home</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#Categories" class="hover:underline text-white">Categories</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#Challenge" class="hover:underline text-white">Daily Challenge</a>
+                                </li>
+                                <li>
+                                    <a href="#aboutus" class="hover:underline text-white">About Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h2 class="mb-6 text-sm font-semibold text-white">Categories</h2>
+                            <ul class="text-gray-400">
+                                <li class="mb-2">
+                                    <a href="#Categories" class="hover:underline text-white">Entertainment</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#Categories" class="hover:underline text-white">Technology</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#Categories" class="hover:underline text-white">Science</a>
+                                </li>
+                                <li>
+                                    <a href="#Categories" class="hover:underline text-white">Sports</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h2 class="mb-6 text-sm font-semibold text-white">Contact Us</h2>
+                            <ul class="text-gray-400">
+                                <li class="mb-2 flex items-center">
+                                    <svg class="w-4 h-4 text-white flex-shrink-0 phonee" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                    </svg>
+                                    <span class="text-white ml-2">+91 9540848152</span>
+                                </li>
+                                <li class="mb-2 flex items-center">
+                                    <svg class="w-4 h-4 text-white flex-shrink-0 phonee" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                    <span class="text-white ml-2">help.quickquiz@gmail.com</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-white flex-shrink-0 phonee" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span class="text-white ml-2">01/G-Town Faridabad India Earth</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-6 border-gray-700 sm:mx-auto lg:my-8" />
+                <div class="sm:flex sm:items-center sm:justify-between">
+                    <span class="text-sm text-gray-400 sm:text-center">© 2025 <a href="index.html"
+                            class="hover:underline">QuickQuiz™</a>. All Rights Reserved.
+                    </span>
+                    <div class="flex mt-4 space-x-5 conttt sm:mt-0">
+                        <a href="#" class="text-gray-500 hover:text-white">
+                            <svg class="w-5 h-5 phonee" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#4A1AB3" viewBox="0 0 320 512">
+                                <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+                            </svg>
+                            <span class="sr-only">Facebook page</span>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-white">
+                            <svg class="w-5 h-5 phonee" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#4A1AB3" viewBox="0 0 640 512">
+                                <path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/>
+                            </svg>
+                            <span class="sr-only">Discord community</span>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-white">
+                            <svg class="w-5 h-5 phonee" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#4A1AB3" viewBox="0 0 512 512">
+                                <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/>
+                            </svg>
+                            <span class="sr-only">Twitter page</span>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-white">
+                            <svg class="w-5 h-5 phonee" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#4A1AB3" viewBox="0 0 496 512">
+                                <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
+                            </svg>
+                            <span class="sr-only">GitHub account</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="indexx.js"></script>
+</body>
+
+</html>
