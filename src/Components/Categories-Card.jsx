@@ -1,16 +1,41 @@
 import '../assets/Categories-Cards.css'
 function Cards() {
-    const cardCompo=
-    [
 
-    ]
-
+    const cardCompo = [
+        {
+            CardID: 1,
+            title: "hello",
+            description: "hjdfhkdjfhksjd",
+            Image: ""
+        },
+        {
+            CardID: 2,
+            title: "hell",
+            description: "hjdfhkdjfhksjd",
+            Image: ""
+        },
+        {
+            CardID: 3,
+            title: "hel",
+            description: "hjdfhkdjfhksjd",
+            Image: ""
+        },
+        {
+            CardID: 4,
+            title: "he",
+            description: "hjdfhkdjfhksjd",
+            Image: ""
+        }
+    ];
 
     return (
         <>
-            <div className="OuterCard">
-                hello
-            </div>
+            {cardCompo.map((card, CardID) => (
+                <div key={CardID} className="OuterCard">
+                    
+                </div>
+
+            ))}
         </>
     )
 }
