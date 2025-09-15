@@ -1,40 +1,59 @@
 import '../assets/Categories-Cards.css'
+import catCaltural from "../assets/CatCaltural.jpeg"
+import CatEnt from "../assets/CatEnt.jpeg"
+import catScience from "../assets/CatScience.png"
+import catTech from "../assets/CatTech.jpeg"
+import catSport from "../assets/CatSport.jpeg"
+import catLogic from "../assets/catLogic.jpeg"
 function Cards() {
 
     const cardCompo = [
         {
             CardID: 1,
-            title: "hello",
-            description: "hjdfhkdjfhksjd",
-            Image: ""
+            title: "Categoty : Catural",
+            description: "Start your quiz journy and Challange your mind now..",
+            Image: catCaltural
         },
         {
             CardID: 2,
-            title: "hell",
-            description: "hjdfhkdjfhksjd",
-            Image: ""
+            title: "Categoty : Tech & Inovation",
+            description: "Start your quiz journy and Challange your mind now..",
+            Image: catTech
         },
         {
             CardID: 3,
-            title: "hel",
-            description: "hjdfhkdjfhksjd",
-            Image: ""
+            title: "Categoty : Science & Space",
+            description: "Start your quiz journy and Challange your mind now..",
+            Image: catScience
         },
         {
             CardID: 4,
-            title: "he",
-            description: "hjdfhkdjfhksjd",
-            Image: ""
+            title: "Categoty : Logical & Puzzal",
+            description: "Start your quiz journy and Challange your mind now..",
+            Image: catLogic
+        },
+        {
+            CardID: 5,
+            title: "Categoty : Ententenment & Pop",
+            description: "Start your quiz journy and Challange your mind now..",
+            Image: CatEnt
+        },
+        {
+            CardID: 6,
+            title: "Categoty : Sports & Fitness",
+            description: "Start your quiz journy and Challange your mind now..",
+            Image: catSport
         }
     ];
 
     return (
         <>
             {cardCompo.map((card, CardID) => (
-                <div key={CardID} className="OuterCard">
-                    
+                <div key={CardID} className="OuterCard" style={{ backgroundImage: `url(${card.Image})`}}>
+                    <h1>{card.title}</h1>
+                    <p>{card.description}</p>
+                    <button className='start-quiz-btn'>Start Quiz Now</button>
                 </div>
-
             ))}
         </>
     )
