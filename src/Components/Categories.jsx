@@ -14,7 +14,7 @@ function Categories() {
         function startAutoScroll() {
             stopAutoScroll();
             autoScroll = setInterval(() => {
-                container.scrollBy({ left: 0.5, behavior: "smooth" }); // 1px per tick
+                container.scrollBy({ left: 0.5, behavior: "smooth" });
                 if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
                     container.scrollLeft = 0;
                 }
@@ -28,10 +28,10 @@ function Categories() {
             }
         }
 
-        // Start auto-scroll on mount
+
         startAutoScroll();
 
-        // Pause on user interaction
+
         const handleUserScroll = () => {
             stopAutoScroll();
             clearTimeout(container.resumeTimer);
@@ -51,8 +51,11 @@ function Categories() {
     }, []);
 
     return (
-        <div className="cardContainer" ref={containerRef}>
-            <Cards />
+        <div className="outerCardContainer">
+            <h2>📈 Trending Quizzes - Start Now!</h2>
+            <div className="cardContainer" ref={containerRef}>
+                <Cards />
+            </div>
         </div>
     );
 }
