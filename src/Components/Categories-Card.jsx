@@ -4,7 +4,7 @@ import CatEnt from "../assets/CatEnt.jpeg"
 import catScience from "../assets/CatScience.png"
 import catTech from "../assets/CatTech.jpeg"
 import catSport from "../assets/CatSport.jpeg"
-import catLogic from "../assets/catLogic.jpeg"
+import catLogic from "../assets/CatLogic.jpeg"
 function Cards() {
 
     const cardCompo = [
