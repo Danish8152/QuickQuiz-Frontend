@@ -3,7 +3,7 @@ import "../assets/hero.css"
 
 function Hero() {
     return (
-        <section className="bg-black flex items-center justify-between px-20">
+        <section className="bg-black flex items-center justify-between px-20 heroOuter">
             <div className="hero-info">
                 <h1 className="">Challenge your mind, track your progress, and level up your knowledge.</h1>
                 <div className="sub-hero"><h6 className="">Why Choose Us?</h6>

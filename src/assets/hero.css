@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+.heroOuter{
+    padding-top: 100px;
+}
+
 .hero-info
 {
     padding-left: 200px;
