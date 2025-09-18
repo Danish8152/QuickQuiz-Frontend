@@ -21,7 +21,7 @@
     padding-bottom: 40px;
 }
 
-.OuterCard h1, p {
+.OuterCard h2, p {
     background: none;
     padding-left: 20px;
     text-align: left;
@@ -48,4 +48,8 @@
 .start-quiz-btn:hover{
     background-color: rgb(254, 254, 99);
     transition: all 0.2s ease;
+}
+
+.OuterCard h2 {
+    font-size: 19px;
 }

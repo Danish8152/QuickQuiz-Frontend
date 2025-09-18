@@ -50,7 +50,7 @@ function Cards() {
         <>
             {cardCompo.map((card, CardID) => (
                 <div key={CardID} className="OuterCard" style={{ backgroundImage: `url(${card.Image})`}}>
-                    <h1>{card.title}</h1>
+                    <h2>{card.title}</h2>
                     <p>{card.description}</p>
                     <button className='start-quiz-btn'>Start Quiz Now</button>
                 </div>
