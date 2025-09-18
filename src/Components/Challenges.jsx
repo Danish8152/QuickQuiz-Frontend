@@ -20,23 +20,14 @@ const Challenge = () => {
         }
     };
 
-    const getRankBg = (rank) => {
-        switch (rank) {
-            case 1: return "bg-warning-subtle border-warning";
-            case 2: return "bg-secondary-subtle border-secondary";
-            case 3: return "bg-warning-subtle border-warning";
-            default: return "bg-white border-light";
-        }
-    };
-
     return (
         <>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-            <div className="container-fluid min-vh-100 py-4">
+            <div className="container-fluid min-vh-100 py-4 bg-black">
                 <div className="container">
                     <div className="text-center mb-5">
-                        <h1 className="display-4 fw-bold mb-3">Challenge of the day</h1>
+                        <h1 className="display-4 fw-semibold fs-1 mb-3">Challenge of the day</h1>
                         <p className="fs-5">Compete with the best minds worldwide</p>
                     </div>
 
@@ -53,9 +44,9 @@ const Challenge = () => {
                                     {/* Contest Status */}
                                     <div className="alert bg-success d-flex align-items-center mb-4">
                                         <div className="spinner-grow spinner-grow-sm text-danger me-2" role="status"></div>
-                                        <div className='bg-transparent'>
-                                            <strong className='bg-transparent'>Contest Live</strong>
-                                            <div className="small bg-transparent">Competition is currently ongoing</div>
+                                        <div className=''>
+                                            <strong className=''>Contest Live</strong>
+                                            <div className="small">Competition is currently ongoing</div>
                                         </div>
                                     </div>
 
@@ -115,8 +106,8 @@ const Challenge = () => {
                         <div className="col-lg-6">
                             <div className="shadow-sm h-100">
                                 <div className="card-body">
-                                    <div className="d-flex align-items-center mb-4">
-                                        <Trophy className="text-warning me-3" style={{ width: '32px', height: '32px' }} />
+                                    <div className="d-flex align-items-center mb-4 bg-transparent">
+                                        <Trophy className="text-warning me-3 bg-transparent" style={{ width: '32px', height: '32px' }} />
                                         <h2 className="card-title h3 mb-0">Leaderboard</h2>
                                     </div>
 
@@ -124,9 +115,9 @@ const Challenge = () => {
                                         {leaderboardData.map((participant) => (
                                             <div
                                                 key={participant.rank}
-                                                className={`${getRankBg(participant.rank)}`}
+                                                className={` ${(participant.rank)}`}
                                             >
-                                                <div className="card-body py-3">
+                                                <div className="card-body py-3 ">
                                                     <div className="d-flex align-items-center">
                                                         <div className="me-3">
                                                             {getRankIcon(participant.rank)}

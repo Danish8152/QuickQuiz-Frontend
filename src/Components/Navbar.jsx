@@ -3,7 +3,7 @@ import logo from "../assets/QuickQuiz-Logo.png";
 function Nav() {
     return (
 
-        <div className='Header'>
+        <div className='Header bg-black'>
             <img src={logo} alt="QuickQuiq-logo" className='logo' />
             <ul className='nav-list flex'>
                 <li><a href="#">Home</a></li>
