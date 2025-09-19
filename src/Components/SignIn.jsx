@@ -12,19 +12,27 @@ function SignIn({ onClose }) {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
             });
-            const data = await res.json();
-            if (data.token) {
-                localStorage.setItem("token", data.token);
-                alert("Login successful!");
-                onClose(); // close modal
-            } else {
-                alert(data.error);
+
+            let data;
+            try {
+                data = await res.json(); // try parsing JSON
+            } catch {
+                const text = await res.text(); // fallback to plain text
+                throw new Error(text);
             }
+
+            if (!res.ok) {
+                throw new Error(data.error || "Login failed");
+            }
+
+            alert(data.message || "Login successful");
+            onClose();
         } catch (err) {
             console.error(err);
-            alert("Something went wrong!");
+            alert(err.message);
         }
     };
+
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
             <div className="border border-primary px-4 py-4  bg-black rounded-2xl p-6 w-96">

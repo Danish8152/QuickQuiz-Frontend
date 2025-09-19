@@ -25,9 +25,9 @@ export default async function handler(req, res) {
       return res.status(401).json({ error: "Invalid credentials" });
     }
 
-    res.status(200).json({ message: "Login successful" });
+    return res.status(200).json({ message: "Login successful", user });
   } catch (error) {
-    console.error("SignIn error:", error);
-    res.status(500).json({ error: "Server error" });
+    console.error("❌ SignIn error:", error.message);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 }
