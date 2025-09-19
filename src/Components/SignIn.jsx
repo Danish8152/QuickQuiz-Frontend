@@ -1,6 +1,3 @@
-import { Pointer } from "lucide-react";
-import { Cursor } from "mongoose";
-
 
 function SignIn({ onClose }) {
     return (
