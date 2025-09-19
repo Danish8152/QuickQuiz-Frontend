@@ -7,19 +7,26 @@ function SignUp({ onClose }) {
 
     const handleSignUp = async (e) => {
         e.preventDefault();
+
+        const res = await fetch("/api/SignUp", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, password }),
+        });
+
+        let data;
         try {
-            const res = await fetch("/api/SignUp", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, password }),
-            });
-            const data = await res.json();
-            alert(data.message || data.error);
-            if (data.message) onClose(); // close modal on success
-        } catch (err) {
-            console.error(err);
-            alert("Something went wrong!");
+            data = await res.json();
+        } catch {
+            throw new Error("Server did not return JSON");
         }
+
+        if (!res.ok) {
+            alert(data.error || "Something went wrong");
+            return;
+        }
+
+        alert(data.message);
     };
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">

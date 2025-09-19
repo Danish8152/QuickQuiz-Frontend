@@ -9,8 +9,10 @@ export default async function handler(req, res) {
 
   try {
     await connectToDB();
+    console.log("📌 DB connected in SignUp");
 
     const { name, email, password } = req.body;
+    console.log("📌 Request body:", { name, email });
 
     if (!email || !password) {
       return res.status(400).json({ error: "Email and password required" });
@@ -21,7 +23,6 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "User already exists" });
     }
 
-    // 🔑 Hash password before saving
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = new User({
@@ -31,10 +32,11 @@ export default async function handler(req, res) {
     });
 
     await newUser.save();
+    console.log("✅ User created:", newUser._id);
 
     return res.status(201).json({ message: "User registered successfully ✅" });
   } catch (err) {
-    console.error("❌ SignUp error:", err.message);
+    console.error("❌ SignUp error:", err);
     return res.status(500).json({ error: "Internal Server Error", details: err.message });
   }
 }
