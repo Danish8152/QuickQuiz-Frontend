@@ -1,34 +1,40 @@
-import mongoose from "mongoose";
+import { connectToDB } from "../../lib/mongodb";
+import User from "../../models/User";
 import bcrypt from "bcryptjs";
-import User from "../models/User.js";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, email, password } = req.body;
-
-  if (!name || !email || !password) {
-    return res.status(400).json({ error: "All fields are required" });
-  }
-
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
+    await connectToDB();
 
-    const existing = await User.findOne({ email });
-    if (existing) {
+    const { name, email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ error: "Email and password required" });
+    }
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
       return res.status(400).json({ error: "User already exists" });
     }
 
+    // 🔑 Hash password before saving
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = new User({ name, email, password: hashedPassword });
-    await user.save();
+    const newUser = new User({
+      name,
+      email,
+      password: hashedPassword,
+    });
 
-    res.status(201).json({ message: "User registered successfully" });
+    await newUser.save();
+
+    return res.status(201).json({ message: "User registered successfully ✅" });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Server error" });
+    console.error("❌ SignUp error:", err.message);
+    return res.status(500).json({ error: "Internal Server Error", details: err.message });
   }
 }
