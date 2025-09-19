@@ -13,25 +13,29 @@ function SignIn({ onClose }) {
                 body: JSON.stringify({ email, password }),
             });
 
+            // check response type safely
+            const contentType = res.headers.get("content-type");
             let data;
-            try {
-                data = await res.json(); // try parsing JSON
-            } catch {
-                const text = await res.text(); // fallback to plain text
-                throw new Error(text);
+
+            if (contentType && contentType.includes("application/json")) {
+                data = await res.json();
+            } else {
+                const text = await res.text();
+                throw new Error(text || "Unknown server error");
             }
 
             if (!res.ok) {
                 throw new Error(data.error || "Login failed");
             }
 
-            alert(data.message || "Login successful");
+            alert(data.message || "Login successful ✅");
             onClose();
         } catch (err) {
-            console.error(err);
+            console.error("❌ SignIn error:", err);
             alert(err.message);
         }
     };
+
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
