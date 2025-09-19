@@ -1,6 +1,6 @@
 import '../assets/Navbar.css';
 import logo from "../assets/QuickQuiz-Logo.png";
-function Nav() {
+function Nav({onSignUpClick, onSignInClick}) {
     return (
 
         <div className='Header bg-black'>
@@ -12,8 +12,8 @@ function Nav() {
                 <li><a href="#">About Us</a></li>
             </ul>
             <div className='sign-in-up'>
-                <button className='sign-in'>Sign In</button>
-                <button className='sign-up'>Sign Up</button>
+                <button className='sign-in' onClick={onSignInClick}>Sign In</button>
+                <button className='sign-up' onClick={onSignUpClick }>Sign Up</button>
             </div>
         </div>
 
