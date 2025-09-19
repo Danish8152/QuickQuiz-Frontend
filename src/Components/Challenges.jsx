@@ -24,7 +24,7 @@ const Challenge = () => {
         <>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-            <div className="container-fluid min-vh-100 py-4 bg-black">
+            <div className="container-fluid min-vh-100 pt-5 mt-5 bg-black">
                 <div className="container">
                     <div className="text-center mb-5">
                         <h1 className="display-4 fw-semibold fs-1 mb-3">Challenge of the day</h1>
