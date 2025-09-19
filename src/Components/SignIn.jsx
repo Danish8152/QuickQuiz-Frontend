@@ -7,7 +7,7 @@ function SignIn({ onClose }) {
     const handleSignIn = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch("/api/login", {
+            const res = await fetch("/api/SignIn", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
