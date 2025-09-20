@@ -35,7 +35,7 @@ function SignIn({ onClose }) {
             localStorage.setItem("token", data.token);
             localStorage.setItem("user", JSON.stringify(data.user));
 
-            alert(data.message || "Login successful ✅");
+            alert(data.message || "Login successful || Refresh the page for access ");
             onClose();
         } catch (err) {
             console.error("❌ SignIn error:", err);
