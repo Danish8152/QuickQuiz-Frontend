@@ -23,6 +23,10 @@
 .nav-list {
   list-style: none;
   display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
   gap: 35px;
 }
 
@@ -78,3 +82,25 @@
   z-index: 3000;
 }
 
+.profile{
+  cursor: pointer;
+}
+
+.profileSlider{
+  border-left: 2px solid #4A1AB3;
+  
+}
+
+.profileSlider button{
+  margin-top: 130%;
+  margin-left: 20px;
+  border: 1px solid #4A1AB3;
+  padding: 5px;
+  border-radius: 20px;
+  background: #4A1AB3;
+
+}
+
+.profileSlider button:hover {
+  color: red;
+}
