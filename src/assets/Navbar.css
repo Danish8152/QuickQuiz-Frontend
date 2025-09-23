@@ -5,10 +5,10 @@
 }
 
 .Header {
-  border-bottom:2px solid #464646 ;
-  display: flex;              
-  align-items: center;          
-  justify-content: space-between; 
+  border-bottom: 2px solid #464646;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: fixed;
   width: 100%;
   padding: 15px 40px;
@@ -17,7 +17,7 @@
 
 .logo {
   width: 160px;
-  height: auto; 
+  height: auto;
 }
 
 .nav-list {
@@ -75,23 +75,23 @@
   background-color: #8e8d8d;
 }
 
-.signInsignUp{
+.signInsignUp {
   width: 200px;
   height: 300px;
   border: 2px solid #4A1AB3;
   z-index: 3000;
 }
 
-.profile{
+.profile {
   cursor: pointer;
 }
 
-.profileSlider{
+.profileSlider {
   border-left: 2px solid #4A1AB3;
-  
+  box-shadow: -8px 0 15px rgba(74, 26, 179, 0.7);
 }
 
-.profileSlider button{
+.profileSlider button {
   margin-top: 130%;
   margin-left: 20px;
   border: 1px solid #4A1AB3;
