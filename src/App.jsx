@@ -8,6 +8,7 @@ import SignIn from './Components/SignIn'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import ProfileSidebar from './Components/ProfileSlider'
+import Footer from './Components/Footer'
 
 function App() {
   const [showSignUp, setShowSignUp] = useState(false)
@@ -34,6 +35,7 @@ function App() {
       <Hero/>
       <Categories/>
       <Challenge/>
+      <Footer/>
       {showSignUp && <SignUp onClose={() => setShowSignUp(false)} />}
       {showSignIn && <SignIn onClose={()=> setShowSignIn(false)}/>}
       {profileSlider && <ProfileSidebar user={user} onClose={()=> setProfileSlider(false)}/>}
