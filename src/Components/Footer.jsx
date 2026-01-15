@@ -12,7 +12,7 @@ function Footer() {
         <div className="lowerFooter">
             <ul className="d-flex justify-content-around m-0 p-0">
                 <li>Made With ❤️</li>
-                <li>©️ All Rights Recived: QuicQuiz</li>
+                <li>©️ All Rights Recived: QuickQuiz</li>
                 <li>Contact Us</li>
             </ul>
         </div>
