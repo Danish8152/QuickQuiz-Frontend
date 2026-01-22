@@ -5,12 +5,28 @@
 }
 
 .upperFooter{
-    padding: 3rem 0 3rem 7rem;
+    padding: 2rem 0 2rem 7rem;
+}
+
+.footer-containt a
+{
+    text-decoration: none;
+    color: white;
 }
 
 .social-media{
-    
+    display: flex;
+    gap: 30px;
 }
+
+.footer-containt img
+{
+    width: 35px;
+    height: 35px;
+    margin-top: 0.5rem;
+}
+
+
 
 .lowerFooter
 {

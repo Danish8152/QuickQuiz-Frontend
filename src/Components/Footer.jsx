@@ -6,11 +6,12 @@ function Footer() {
                 <div className="footer-logo w-45"><img src="/src/assets/QuickQuiz-Logo.png" alt="Web logo"/></div>
                 <div className="footer-containt text-left ms-5 ps-5">
                     <h4>Quick Links</h4>
-                    <a href="#" className="text-decoration-none text-dark">Challenges</a> | <a href="#">Contact Us</a> | <a href="#">FAQs</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
-                    <div className="social-media d-flex">
+                    <a href="#" className="text-decoration-none">Challenges</a> | <a href="#">Contact Us</a> | <a href="#">FAQs</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                    <hr className="footer-line mt-4"/>
+                    <div className="social-media">
                         <img src="/src/assets/icons8-facebook-logo-48.png" alt="Fackebook Logo" />
                         <img src="/src/assets/icons8-instagram-logo-48.png" alt="Instagram Logo" />
-                        <img src="/src/assets/icons8-twitter-48.png" alt="Twiter Logo" />
+                        <img src="/src/assets/icons8-twitter-48.png" alt="Twiter Logo" style={{width: "25px" , height: "25px", marginTop: "13px"}}/>
                         <img src="src\assets\icons8-youtube-logo-48.png" alt="Youtube Logo" />
                     </div>
                 </div>
