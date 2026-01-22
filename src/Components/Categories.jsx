@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import "../assets/Categories.css";
+import "../Style/Categories.css";
 import Cards from "./Categories-Card";
 
 function Categories() {

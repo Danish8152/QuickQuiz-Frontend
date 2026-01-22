@@ -136,7 +136,7 @@ const Challenge = () => {
                                                             </div>
                                                         </div>
 
-                                                        <div className="flex-grow-1">
+                                                        <div className="">
                                                             <h6 className="mb-0">{participant.name}</h6>
                                                             <small className="">Rank #{participant.rank}</small>
                                                         </div>

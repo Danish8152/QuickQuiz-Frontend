@@ -1,21 +1,27 @@
-
+import "../Style/Footer.css"
 function Footer() {
     return (
-        <section className="footerSection">
-        <div className="upperFooter text-center">
-            <h3>Join Our QuickQuiz Community</h3>
-            <div className="upperftbtns flex justify-content-center gap-5">
-                <button className="upperftsignupbtn">Sign Up Now</button>
-                <button className="upperftleanmorebtn">Learn More</button>
+        <section className="footerSection pt-3">
+            <div className="upperFooter text-center d-flex flex-row">
+                <div className="footer-logo w-45"><img src="/src/assets/QuickQuiz-Logo.png" alt="Web logo"/></div>
+                <div className="footer-containt text-left ms-5 ps-5">
+                    <h4>Quick Links</h4>
+                    <a href="#" className="text-decoration-none text-dark">Challenges</a> | <a href="#">Contact Us</a> | <a href="#">FAQs</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                    <div className="social-media d-flex">
+                        <img src="/src/assets/icons8-facebook-logo-48.png" alt="Fackebook Logo" />
+                        <img src="/src/assets/icons8-instagram-logo-48.png" alt="Instagram Logo" />
+                        <img src="/src/assets/icons8-twitter-48.png" alt="Twiter Logo" />
+                        <img src="src\assets\icons8-youtube-logo-48.png" alt="Youtube Logo" />
+                    </div>
+                </div>
             </div>
-        </div>
-        <div className="lowerFooter">
-            <ul className="d-flex justify-content-around m-0 p-0">
-                <li>Made With ❤️</li>
-                <li>©️ All Rights Recived: QuickQuiz</li>
-                <li>Contact Us</li>
-            </ul>
-        </div>
+            <div className="lowerFooter pt-3 pb-3">
+                <ul className="d-flex justify-content-around m-0 p-0">
+                    <li>Made With ❤️</li>
+                    <li>©️ All Rights Recived: QuickQuiz</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
         </section>
     );
 }

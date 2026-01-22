@@ -1,4 +1,4 @@
-import '../assets/Navbar.css';
+import '../Style/Navbar.css';
 import logo from "../assets/QuickQuiz-Logo.png";
 function Nav({ onSignUpClick, onSignInClick, user, handleSignOut, showProfileSilder }) {
     return (

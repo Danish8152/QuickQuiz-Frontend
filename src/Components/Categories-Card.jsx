@@ -1,4 +1,4 @@
-import '../assets/Categories-Cards.css'
+import '../Style/Categories-Cards.css'
 import catCaltural from "../assets/CatCaltural.jpeg"
 import CatEnt from "../assets/CatEnt.jpeg"
 import catScience from "../assets/CatScience.png"

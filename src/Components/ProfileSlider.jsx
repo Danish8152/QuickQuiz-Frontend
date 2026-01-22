@@ -1,4 +1,4 @@
-import '../assets/Navbar.css'
+import '../Style/Navbar.css'
 function ProfileSidebar({ user, onClose }) {
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex justify-end mt-5 outerProfile" >
