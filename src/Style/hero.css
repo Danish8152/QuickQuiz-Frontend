@@ -3,10 +3,6 @@
     margin: 0;
 }
 
-.heroOuter{
-    padding-top: 100px;
-}
-
 .hero-info
 {
     padding-left: 200px;
@@ -19,8 +15,8 @@
 
 .hero-image
 {
-    padding-right: 150px;
-    padding-top: 50px;
+    padding-right: 100px
+    
 }
 
 .sub-hero
