@@ -12,7 +12,7 @@ function Footer() {
                         <img src="/src/assets/icons8-facebook-logo-48.png" alt="Fackebook Logo" />
                         <img src="/src/assets/icons8-instagram-logo-48.png" alt="Instagram Logo" />
                         <img src="/src/assets/icons8-twitter-48.png" alt="Twiter Logo" style={{width: "25px" , height: "25px", marginTop: "13px"}}/>
-                        <img src="src\assets\icons8-youtube-logo-48.png" alt="Youtube Logo" />
+                        <img src="/src/assets/icons8-youtube-logo-48.png" alt="Youtube Logo" />
                     </div>
                 </div>
             </div>
