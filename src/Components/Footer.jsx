@@ -1,4 +1,5 @@
 import "../Style/Footer.css"
+import logo from "../assets/QuickQuiz-Logo.png"
 import facebook from "../assets/icons8-facebook-logo-48.png"
 import insta from "../assets/icons8-instagram-logo-48.png"
 import tweeter from "../assets/icons8-twitter-48.png"
@@ -7,7 +8,7 @@ function Footer() {
     return (
         <section className="footerSection pt-3">
             <div className="upperFooter text-center d-flex flex-row">
-                <div className="footer-logo w-45"><img src="/src/assets/QuickQuiz-Logo.png" alt="Web logo"/></div>
+                <div className="footer-logo w-45"><img src={logo} alt="Web logo"/></div>
                 <div className="footer-containt text-left ms-5 ps-5">
                     <h4>Quick Links</h4>
                     <a href="#" className="text-decoration-none">Challenges</a> | <a href="#">Contact Us</a> | <a href="#">FAQs</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
