@@ -1,4 +1,8 @@
 import "../Style/Footer.css"
+import facebook from "../assets/icons8-facebook-logo-48.png"
+import insta from "../assets/icons8-instagram-logo-48.png"
+import tweeter from "../assets/icons8-twitter-48.png"
+import youtube from "../assets/icons8-youtube-logo-48.png"
 function Footer() {
     return (
         <section className="footerSection pt-3">
@@ -9,10 +13,10 @@ function Footer() {
                     <a href="#" className="text-decoration-none">Challenges</a> | <a href="#">Contact Us</a> | <a href="#">FAQs</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
                     <hr className="footer-line mt-4"/>
                     <div className="social-media">
-                        <img src="/src/assets/icons8-facebook-logo-48.png" alt="Fackebook Logo" />
-                        <img src="/src/assets/icons8-instagram-logo-48.png" alt="Instagram Logo" />
-                        <img src="/src/assets/icons8-twitter-48.png" alt="Twiter Logo" style={{width: "25px" , height: "25px", marginTop: "13px"}}/>
-                        <img src="/src/assets/icons8-youtube-logo-48.png" alt="Youtube Logo" />
+                        <img src={facebook} alt="Fackebook Logo" />
+                        <img src={insta} alt="Instagram Logo" />
+                        <img src={tweeter} alt="Twiter Logo" style={{width: "25px" , height: "25px", marginTop: "13px"}}/>
+                        <img src={youtube} alt="Youtube Logo" />
                     </div>
                 </div>
             </div>
