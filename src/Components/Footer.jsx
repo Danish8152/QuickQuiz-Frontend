@@ -11,7 +11,7 @@ function Footer() {
                 <div className="footer-logo w-45"><img src={logo} alt="Web logo"/></div>
                 <div className="footer-containt text-left ms-5 ps-5">
                     <h4>Quick Links</h4>
-                    <a href="#" className="text-decoration-none">Challenges</a> | <a href="#">Contact Us</a> | <a href="#">FAQs</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                    <a href="#" className="text-decoration-none">Challenge</a> | <a href="#">Contact Us</a> | <a href="#">FAQs</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
                     <hr className="footer-line mt-4"/>
                     <div className="social-media">
                         <img src={facebook} alt="Fackebook Logo" />
