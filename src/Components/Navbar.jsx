@@ -6,7 +6,6 @@ function Nav({ onSignUpClick, onSignInClick, user, handleSignOut, showProfileSil
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-
         <div className='Header bg-black'>
             <img src={logo} alt="QuickQuiq-logo" className='logo' />
 

@@ -23,9 +23,9 @@ function Footer() {
             </div>
             <div className="lowerFooter pt-3 pb-3">
                 <ul className="d-flex justify-content-around m-0 p-0">
-                    <li>Made With ❤️</li>
-                    <li>©️ All Rights Recived: QuickQuiz</li>
-                    <li>Contact Us</li>
+                    <li id="footerlist-1">Made With ❤️</li>
+                    <li id="footerlist-2">©️ All Rights Recived: QuickQuiz</li>
+                    <li id="footerlist-3">Contact Us</li>
                 </ul>
             </div>
         </section>

@@ -83,3 +83,27 @@
     background-color: rgb(255, 255, 170);
     transition: all 0.2s ease;
 }
+
+@media (max-width: 1000px) {
+    .hero-image
+    {
+        display: none;
+    }
+
+    .heroOuter
+    {
+        padding-top: 100px;
+    }
+
+    .hero-info{
+        padding-left: 50px;
+        padding-right: 30px;
+        margin-bottom: 50px;
+
+    }
+    
+    .hero-cta
+    {
+        padding-left: 0;
+    }
+}
