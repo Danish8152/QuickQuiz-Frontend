@@ -1,23 +1,39 @@
 import '../Style/Navbar.css';
 import logo from "../assets/QuickQuiz-Logo.png";
+import { useState } from 'react';
+
 function Nav({ onSignUpClick, onSignInClick, user, handleSignOut, showProfileSilder }) {
+    const [menuOpen, setMenuOpen] = useState(false);
+
     return (
 
         <div className='Header bg-black'>
             <img src={logo} alt="QuickQuiq-logo" className='logo' />
-            <ul className='nav-list'>
+
+            {/* Hamburger */}
+            <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+                ☰
+            </div>
+
+            <ul className={`nav-list ${menuOpen ? "active" : ""}`}>
                 <li><a href="#hero">Home</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Challenge</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#challenge">Challenge</a></li>
+                <li><a href="#about">About Us</a></li>
             </ul>
-            <div className='sign-in-up'>
+
+            <div className={`sign-in-up ${menuOpen ? "active" : ""}`}>
                 {user ? (
-                    <div className='d-flex items-center justify-content-center gap-2 profile'>
-                        <div className="user-circle bg-blue-800 text-white w-9 h-9 rounded-full flex items-center justify-center" onClick={showProfileSilder}>
+                    <div className='profile'>
+                        <div
+                            className="user-circle"
+                            onClick={showProfileSilder}
+                        >
                             {user.email[0].toUpperCase()}
                         </div>
-                        <button className='sign-out sign-up' onClick={handleSignOut}>Sign Out</button>
+                        <button className='sign-out sign-up' onClick={handleSignOut}>
+                            Sign Out
+                        </button>
                     </div>
                 ) : (
                     <>
@@ -27,6 +43,7 @@ function Nav({ onSignUpClick, onSignInClick, user, handleSignOut, showProfileSil
                 )}
             </div>
         </div>
+
 
     )
 }

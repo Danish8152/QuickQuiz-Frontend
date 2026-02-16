@@ -104,3 +104,38 @@
 .profileSlider button:hover {
   color: red;
 }
+
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+
+    .nav-list,
+    .sign-in-up {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: black;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .nav-list.active,
+    .sign-in-up.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .Header {
+        flex-wrap: wrap;
+    }
+}
