@@ -6,7 +6,7 @@ function Nav({ onSignUpClick, onSignInClick, user, handleSignOut, showProfileSil
         <div className='Header bg-black'>
             <img src={logo} alt="QuickQuiq-logo" className='logo' />
             <ul className='nav-list'>
-                <li><a href="#">Home</a></li>
+                <li><a href="#hero">Home</a></li>
                 <li><a href="#">Categories</a></li>
                 <li><a href="#">Challenge</a></li>
                 <li><a href="#">About Us</a></li>
@@ -21,7 +21,7 @@ function Nav({ onSignUpClick, onSignInClick, user, handleSignOut, showProfileSil
                     </div>
                 ) : (
                     <>
-                        <button className='sign-in' onClick={onSignInClick}>Sign In</button>
+                        <button className='sign-in' onClick={onSignInClick}>Login</button>
                         <button className='sign-up' onClick={onSignUpClick}>Sign Up</button>
                     </>
                 )}

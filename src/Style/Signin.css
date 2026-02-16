@@ -1,0 +1,49 @@
+
+.outer-s-div
+{
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid #4A1AB3;
+}
+
+.loginandCancle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+    padding-top: 20px;
+    border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+
+.canclebutton {
+    position: absolute;
+    right: 0px;
+    font-size: 40px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+
+.inputts
+{
+    border-bottom: 1px solid gray;
+    border-radius: 15px;
+    padding-left: 20px;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.signupandcancle
+{
+    margin: 0px;
+    border: none;
+}
+
+.signupbtn
+{
+    margin-top: 20px;
+}

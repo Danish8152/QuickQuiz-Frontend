@@ -1,8 +1,11 @@
 import { useState } from "react";
+import "../Style/Signin.css"
+import SignUp from "./SignUp";
 
 function SignIn({ onClose }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showSignUp, setShowSignUp] = useState(false);
 
     // Use environment variable for backend API
     const API_URL = import.meta.env.VITE_API_URL || "https://quickquiz-backend-3kix.onrender.com/api/auth";
@@ -43,48 +46,62 @@ function SignIn({ onClose }) {
         }
     };
 
+    if (showSignUp) {
+        return <SignUp onClose={onClose} />;
+    }
+
+
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-            <div className="border border-primary bg-black rounded-2xl p-6 w-96">
-                <h2 className="text-2xl font-bold mb-4 text-center">Sign In</h2>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50 outer-f-div">
+            <div className=" bg-black rounded-2xl p-6 w-96 outer-s-div">
+                <div className="loginandCancle">
+                    <h2>Login</h2>
+                    <span className="canclebutton" onClick={onClose}>+</span>
+                </div>
                 <form className="flex flex-col space-y-4" onSubmit={handleSignIn}>
                     <input
                         type="email"
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="border p-2 rounded"
+                        className="inputts"
                         required
                     />
+
                     <input
                         type="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="border p-2 rounded"
+                        className="inputts"
                         required
                     />
-                    <button
-                        type="submit"
-                        className="bg-blue-700 text-white py-2 rounded hover:bg-blue-800"
-                    >
-                        Sign In
-                    </button>
-                </form>
 
-                <div className="flex flex-col space-y-4 mt-4">
                     <p
                         className="link-primary fs-6 cursor-pointer"
                         onClick={() => alert("Forgot password flow coming soon!")}
                     >
-                        Forget password?
+                        Forget password ?
                     </p>
+
                     <button
-                        onClick={onClose}
-                        className="w-full border py-2 rounded hover:bg-gray-500"
+                        type="submit"
+                        className="bg-blue-700 text-white py-2 rounded hover:bg-blue-800"
                     >
-                        Close
+                        Login
                     </button>
+                </form>
+
+                <div className="flex flex-col space-y-4 mt-4">
+                    <p>
+                        Don't have an account <span
+                            style={{ color: "blue", cursor: "pointer" }}
+                            onClick={() => setShowSignUp(true)}
+                        >
+                            Create new
+                        </span>
+
+                    </p>
                 </div>
             </div>
         </div>
