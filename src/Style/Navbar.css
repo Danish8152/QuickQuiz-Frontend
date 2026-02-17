@@ -84,6 +84,27 @@
 
 .profile {
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-circle
+{
+  background-color: #4A1AB3;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-circle:hover
+{
+  background-color: #6a3bd8;
+
 }
 
 .profileSlider {

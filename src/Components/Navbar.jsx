@@ -23,7 +23,7 @@ function Nav({ onSignUpClick, onSignInClick, user, handleSignOut, showProfileSil
 
             <div className={`sign-in-up ${menuOpen ? "active" : ""}`}>
                 {user ? (
-                    <div className='profile'>
+                    <div className="profile">
                         <div
                             className="user-circle"
                             onClick={showProfileSilder}
