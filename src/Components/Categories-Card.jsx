@@ -5,42 +5,48 @@ import catScience from "../assets/CatScience.png"
 import catTech from "../assets/CatTech.jpeg"
 import catSport from "../assets/CatSport.jpeg"
 import catLogic from "../assets/CatLogic.jpeg"
-function Cards() {
+function Cards({ onStart }) {
 
     const cardCompo = [
         {
             CardID: 1,
-            title: "Categoty : Catural",
+            category: "Catural",
+            slug: "cultural",
             description: "Start your quiz journy and Challange your mind now..",
             Image: catCaltural
         },
         {
             CardID: 2,
-            title: "Categoty : Tech & Inovation",
+            category: "Tech & Inovation",
+            slug: "tech",
             description: "Start your quiz journy and Challange your mind now..",
             Image: catTech
         },
         {
             CardID: 3,
-            title: "Categoty : Science & Space",
+            category: "Science & Space",
+            slug: "science",
             description: "Start your quiz journy and Challange your mind now..",
             Image: catScience
         },
         {
             CardID: 4,
-            title: "Categoty : Logical & Puzzal",
+            category: "Logical & Puzzal",
+            slug: "logic",
             description: "Start your quiz journy and Challange your mind now..",
             Image: catLogic
         },
         {
             CardID: 5,
-            title: "Categoty : Ententenment & Pop",
+            category: "Ententenment & Pop",
+            slug: "entertainment",
             description: "Start your quiz journy and Challange your mind now..",
             Image: CatEnt
         },
         {
             CardID: 6,
-            title: "Categoty : Sports & Fitness",
+            category: "Sports & Fitness",
+            slug: "sports",
             description: "Start your quiz journy and Challange your mind now..",
             Image: catSport
         }
@@ -48,11 +54,16 @@ function Cards() {
 
     return (
         <>
-            {cardCompo.map((card, CardID) => (
-                <div key={CardID} className="OuterCard" style={{ backgroundImage: `url(${card.Image})`}}>
-                    <h2>{card.title}</h2>
+            {cardCompo.map((card) => (
+                <div key={card.CardID} className="OuterCard" style={{ backgroundImage: `url(${card.Image})` }}>
+                    <h2>{card.category}</h2>
                     <p>{card.description}</p>
-                    <button className='start-quiz-btn'>Start Quiz Now</button>
+                    <button
+                        className='start-quiz-btn'
+                        onClick={() => onStart(card.slug)}
+                    >
+                        Start Quiz Now
+                    </button>
                 </div>
             ))}
         </>

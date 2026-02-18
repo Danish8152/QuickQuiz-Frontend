@@ -1,14 +1,17 @@
 import './index.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+
 import Navbar from './Components/Navbar'
 import Hero from './Components/Hero'
 import Categories from './Components/Categories'
 import Challenge from './Components/Challenges'
 import SignUp from './Components/SignUp'
 import SignIn from './Components/SignIn'
-import { useState } from 'react'
-import { useEffect } from 'react'
 import ProfileSidebar from './Components/ProfileSlider'
 import Footer from './Components/Footer'
+import QuizPage from './Components/QuizPage'
+
+import { useState, useEffect } from 'react'
 
 function App() {
   const [showSignUp, setShowSignUp] = useState(false)
@@ -30,17 +33,41 @@ function App() {
   }
 
   return (
-    <div className='bg-black'>
-      <Navbar onSignUpClick={()=>setShowSignUp(true)} onSignInClick={()=>setShowSignIn(true)} user={user} handleSignOut={handleSignOut} showProfileSilder={()=> setProfileSlider(true)}/>
-      <Hero/>
-      <Categories/>
-      <Challenge/>
-      <Footer/>
-      {showSignUp && <SignUp onClose={() => setShowSignUp(false)} />}
-      {showSignIn && <SignIn onClose={()=> setShowSignIn(false)}/>}
-      {profileSlider && <ProfileSidebar user={user} onClose={()=> setProfileSlider(false)}/>}
-      
-    </div>
+    <BrowserRouter>
+      <div className='bg-black'>
+        <Navbar 
+          onSignUpClick={()=>setShowSignUp(true)} 
+          onSignInClick={()=>setShowSignIn(true)} 
+          user={user} 
+          handleSignOut={handleSignOut} 
+          showProfileSilder={()=> setProfileSlider(true)}
+        />
+
+        <Routes>
+          <Route 
+            path="/" 
+            element={
+              <>
+                <Hero/>
+                <Categories/>
+                <Challenge/>
+              </>
+            } 
+          />
+
+          <Route 
+            path="/quiz/:category/:level" 
+            element={<QuizPage />} 
+          />
+        </Routes>
+
+        <Footer/>
+
+        {showSignUp && <SignUp onClose={() => setShowSignUp(false)} />}
+        {showSignIn && <SignIn onClose={()=> setShowSignIn(false)}/>}
+        {profileSlider && <ProfileSidebar user={user} onClose={()=> setProfileSlider(false)}/>}
+      </div>
+    </BrowserRouter>
   )
 }
 
