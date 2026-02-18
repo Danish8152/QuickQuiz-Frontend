@@ -35,28 +35,103 @@
 }
 
 
+/* Overlay background */
 .difficulty-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
+/* Modal box */
 .difficulty-box {
-    background: #111;
-    padding: 30px;
-    border-radius: 12px;
+    background: linear-gradient(145deg, #111, #1a1a1a);
+    padding: 40px 35px;
+    border-radius: 16px;
+    width: 320px;
     text-align: center;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.difficulty-box button {
-    display: block;
-    margin: 10px auto;
-    padding: 8px 20px;
+/* Title */
+.difficulty-title {
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+/* Common button style */
+.difficulty-btn {
+    width: 100%;
+    padding: 10px 0;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Easy - Green Accent */
+.difficulty-btn.easy {
+    background: #1db954;
+    color: black;
+}
+
+.difficulty-btn.easy:hover {
+    background: #17a44b;
+    transform: scale(1.05);
+}
+
+/* Medium - Yellow Accent */
+.difficulty-btn.medium {
+    background: #f1c40f;
+    color: black;
+}
+
+.difficulty-btn.medium:hover {
+    background: #d4ac0d;
+    transform: scale(1.05);
+}
+
+/* Hard - Red Accent */
+.difficulty-btn.hard {
+    background: #e74c3c;
+    color: white;
+}
+
+.difficulty-btn.hard:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Cancel Button */
+.cancel-btn {
+    margin-top: 15px;
+    background: transparent;
+    color: #bbb;
+    border: 1px solid #444;
+    padding: 8px 0;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cancel-btn:hover {
+    background: #222;
+    color: white;
+}
+
+/* Smooth fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

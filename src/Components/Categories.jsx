@@ -77,17 +77,26 @@ function Categories() {
             {showDifficulty && (
                 <div className="difficulty-overlay">
                     <div className="difficulty-box">
-                        <h2>Select Difficulty</h2>
+                        <h2 className="difficulty-title">Select Difficulty</h2>
 
-                        <button onClick={() => handleDifficultySelect("easy")}>
+                        <button
+                            className="difficulty-btn easy"
+                            onClick={() => handleDifficultySelect("easy")}
+                        >
                             Easy
                         </button>
 
-                        <button onClick={() => handleDifficultySelect("medium")}>
+                        <button
+                            className="difficulty-btn medium"
+                            onClick={() => handleDifficultySelect("medium")}
+                        >
                             Medium
                         </button>
 
-                        <button onClick={() => handleDifficultySelect("hard")}>
+                        <button
+                            className="difficulty-btn hard"
+                            onClick={() => handleDifficultySelect("hard")}
+                        >
                             Hard
                         </button>
 

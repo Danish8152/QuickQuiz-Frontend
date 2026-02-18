@@ -19,6 +19,182 @@ function QuizPage() {
                     options: ["Google", "Microsoft", "Facebook", "Amazon"],
                     answer: "Facebook"
                 }
+            ],
+            medium: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
+            ],
+            hard: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
+            ]
+        },
+        science: {
+            easy: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
+            ],
+            medium: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
+            ],
+            hard: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
+            ]
+        },
+        logic: {
+            easy: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
+            ],
+            medium: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
+            ],
+            hard: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
+            ]
+        },
+        entertainment: {
+            easy: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
+            ],
+            medium: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
+            ],
+            hard: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
+            ]
+        },
+        sports: {
+            easy: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
+            ],
+            medium: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
+            ],
+            hard: [
+                {
+                    question: "What does CPU stand for?",
+                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
+                    answer: "Central Processing Unit"
+                },
+                {
+                    question: "Which company created React?",
+                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
+                    answer: "Facebook"
+                }
             ]
         }
     };
@@ -31,7 +207,7 @@ function QuizPage() {
 
     if (questions.length === 0) {
         return (
-            <div style={{ padding: "40px", color: "white", background: "black", minHeight: "100vh" }}>
+            <div style={{ padding: "40px", paddingTop:"100px", color: "white", background: "black", minHeight: "100vh" }}>
                 <h2>No questions available for {category} - {level}</h2>
                 <button onClick={() => navigate("/")}>Go Back</button>
             </div>
@@ -53,7 +229,7 @@ function QuizPage() {
     };
 
     return (
-        <div style={{ padding: "40px", color: "white", background: "black", minHeight: "100vh" }}>
+        <div style={{ padding: "40px", paddingTop:"100px", color: "white", background: "black", minHeight: "100vh" }}>
             
             <button onClick={() => navigate("/")} style={{ marginBottom: "20px" }}>
                 ⬅ Back to Categories

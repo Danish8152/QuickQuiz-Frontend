@@ -56,8 +56,8 @@ function Cards({ onStart }) {
         <>
             {cardCompo.map((card) => (
                 <div key={card.CardID} className="OuterCard" style={{ backgroundImage: `url(${card.Image})` }}>
-                    <h2>{card.category}</h2>
                     <p>{card.description}</p>
+                    <h2>{card.category}</h2>
                     <button
                         className='start-quiz-btn'
                         onClick={() => onStart(card.slug)}
