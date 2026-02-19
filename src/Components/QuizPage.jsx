@@ -1,270 +1,130 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import "../Style/QuizPage.css"
 
 function QuizPage() {
     const { category, level } = useParams();
     const navigate = useNavigate();
 
-    // Sample quiz data (expand later)
-    const quizData = {
-        tech: {
-            easy: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ],
-            medium: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ],
-            hard: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ]
-        },
-        science: {
-            easy: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ],
-            medium: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ],
-            hard: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ]
-        },
-        logic: {
-            easy: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ],
-            medium: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ],
-            hard: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ]
-        },
-        entertainment: {
-            easy: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ],
-            medium: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ],
-            hard: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ]
-        },
-        sports: {
-            easy: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ],
-            medium: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ],
-            hard: [
-                {
-                    question: "What does CPU stand for?",
-                    options: ["Central Processing Unit", "Computer Power Unit", "Control Panel Unit", "Core Program Unit"],
-                    answer: "Central Processing Unit"
-                },
-                {
-                    question: "Which company created React?",
-                    options: ["Google", "Microsoft", "Facebook", "Amazon"],
-                    answer: "Facebook"
-                }
-            ]
-        }
-    };
-
-    const questions = quizData[category]?.[level] || [];
-
+    const [questions, setQuestions] = useState([]);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [timeLeft, setTimeLeft] = useState(1000);
 
-    if (questions.length === 0) {
-        return (
-            <div style={{ padding: "40px", paddingTop:"100px", color: "white", background: "black", minHeight: "100vh" }}>
-                <h2>No questions available for {category} - {level}</h2>
-                <button onClick={() => navigate("/")}>Go Back</button>
-            </div>
-        );
-    }
+    // Fetch Questions from API
+    useEffect(() => {
+        const categoryId = categoryMap[category];
+
+        fetch(`https://opentdb.com/api.php?amount=5&category=${categoryId}&difficulty=${level}&type=multiple`)
+            .then(res => res.json())
+            .then(data => {
+                const formatted = data.results.map(q => {
+                    const options = [...q.incorrect_answers, q.correct_answer]
+                        .sort(() => Math.random() - 0.5);
+
+                    return {
+                        question: q.question,
+                        options,
+                        answer: q.correct_answer
+                    };
+                });
+
+                setQuestions(formatted);
+                setLoading(false);
+            });
+    }, [category, level]);
+
+    const categoryMap = {
+        tech: 18,
+        science: 17,
+        sports: 21,
+        entertainment: 11,
+        logic: 9
+    };
+
+    // Timer Logic
+    useEffect(() => {
+        if (timeLeft === 0) {
+            handleNext();
+            return;
+        }
+
+        const timer = setTimeout(() => {
+            setTimeLeft(timeLeft - 1);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [timeLeft]);
 
     const handleAnswer = (option) => {
         if (option === questions[currentQuestion].answer) {
             setScore(score + 1);
         }
+        handleNext();
+    };
 
-        const nextQuestion = currentQuestion + 1;
+    const handleNext = () => {
+        const next = currentQuestion + 1;
 
-        if (nextQuestion < questions.length) {
-            setCurrentQuestion(nextQuestion);
+        if (next < questions.length) {
+            setCurrentQuestion(next);
+            setTimeLeft(10);
         } else {
             setShowResult(true);
         }
     };
 
-    return (
-        <div style={{ padding: "40px", paddingTop:"100px", color: "white", background: "black", minHeight: "100vh" }}>
-            
-            <button onClick={() => navigate("/")} style={{ marginBottom: "20px" }}>
-                ⬅ Back to Categories
-            </button>
+    if (loading) {
+        return (
+            <div className="quiz-container">
+                <h2>Loading Questions...</h2>
+            </div>
+        );
+    }
 
-            <h1>Quiz</h1>
-            <h3>Category: {category}</h3>
-            <h4>Difficulty: {level}</h4>
+    return (
+        <div className="quiz-container">
 
             {!showResult ? (
-                <div>
-                    <h2>{questions[currentQuestion].question}</h2>
+                <div className="quiz-box">
 
-                    {questions[currentQuestion].options.map((option, index) => (
-                        <button
-                            key={index}
-                            onClick={() => handleAnswer(option)}
-                            style={{
-                                display: "block",
-                                margin: "10px 0",
-                                padding: "10px 20px"
-                            }}
-                        >
-                            {option}
-                        </button>
-                    ))}
+                    <div className="quiz-header">
+                        <h3>{category.toUpperCase()} - {level.toUpperCase()}</h3>
+                        <div className="timer">{timeLeft}s</div>
+                    </div>
+
+                    <h2
+                        dangerouslySetInnerHTML={{
+                            __html: questions[currentQuestion].question
+                        }}
+                    />
+
+                    <div className="options">
+                        {questions[currentQuestion].options.map((option, index) => (
+                            <button
+                                key={index}
+                                onClick={() => handleAnswer(option)}
+                                dangerouslySetInnerHTML={{ __html: option }}
+                            />
+                        ))}
+                    </div>
+
                 </div>
             ) : (
-                <div>
-                    <h2>Your Score: {score} / {questions.length}</h2>
+                <div className="result-box">
+                    <h2>Quiz Completed</h2>
+                    <p>Your Score: {score} / {questions.length}</p>
                     <button onClick={() => navigate("/")}>
                         Play Again
                     </button>
                 </div>
             )}
+
+            <button className="back-btn" onClick={() => navigate("/")}>
+                ⬅ Back
+            </button>
         </div>
     );
 }
