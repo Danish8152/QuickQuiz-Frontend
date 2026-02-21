@@ -7,8 +7,8 @@ import youtube from "../assets/icons8-youtube-logo-48.png"
 function Footer() {
     return (
         <section className="footerSection pt-3">
-            <div className="upperFooter text-center d-flex flex-row">
-                <div className="footer-logo w-45"><img src={logo} alt="Web logo"/></div>
+            <div className="upperFooter">
+                <div className="footer-logo"><img src={logo} alt="Web logo"/></div>
                 <div className="footer-containt text-left ms-5 ps-5">
                     <h4>Quick Links</h4>
                     <a href="#" className="text-decoration-none">Challenges</a> | <a href="#">Contact Us</a> | <a href="#">FAQs</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
@@ -22,10 +22,10 @@ function Footer() {
                 </div>
             </div>
             <div className="lowerFooter pt-3 pb-3">
-                <ul className="d-flex justify-content-around m-0 p-0">
+                <ul className="footerlist">
                     <li id="footerlist-1">Made With ❤️</li>
                     <li id="footerlist-2">©️ All Rights Recived: QuickQuiz</li>
-                    <li id="footerlist-3">Contact Us</li>
+                    <li id="footerlist-3" style={{cursor: "pointer"}}>Contact Us</li>
                 </ul>
             </div>
         </section>

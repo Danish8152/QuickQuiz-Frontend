@@ -12,6 +12,16 @@ function QuizPage() {
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(true);
     const [timeLeft, setTimeLeft] = useState(1000);
+    const [userAnswers, setUserAnswers] = useState([]);
+
+
+    const categoryMap = {
+        tech: 18,
+        science: 17,
+        sports: 21,
+        entertainment: 11,
+        logic: 9
+    };
 
     // Fetch Questions from API
     useEffect(() => {
@@ -36,17 +46,21 @@ function QuizPage() {
             });
     }, [category, level]);
 
-    const categoryMap = {
-        tech: 18,
-        science: 17,
-        sports: 21,
-        entertainment: 11,
-        logic: 9
-    };
+
 
     // Timer Logic
     useEffect(() => {
+        if (showResult) return;
+
         if (timeLeft === 0) {
+            setUserAnswers(prev => [
+                ...prev,
+                {
+                    question: questions[currentQuestion].question,
+                    selected: "Not Answered",
+                    correct: questions[currentQuestion].answer
+                }
+            ]);
             handleNext();
             return;
         }
@@ -59,9 +73,21 @@ function QuizPage() {
     }, [timeLeft]);
 
     const handleAnswer = (option) => {
-        if (option === questions[currentQuestion].answer) {
-            setScore(score + 1);
+        const isCorrect = option === questions[currentQuestion].answer;
+
+        if (isCorrect) {
+            setScore(prev => prev + 1);
         }
+
+        setUserAnswers(prev => [
+            ...prev,
+            {
+                question: questions[currentQuestion].question,
+                selected: option,
+                correct: questions[currentQuestion].answer
+            }
+        ]);
+
         handleNext();
     };
 
@@ -115,8 +141,70 @@ function QuizPage() {
             ) : (
                 <div className="result-box">
                     <h2>Quiz Completed</h2>
-                    <p>Your Score: {score} / {questions.length}</p>
-                    <button onClick={() => navigate("/")}>
+
+                    <h3>
+                        Score: {score} / {questions.length}
+                    </h3>
+
+                    {(() => {
+                        const percentage = Math.round((score / questions.length) * 100);
+
+                        return (
+                            <>
+                                <h4>{percentage}%</h4>
+
+                                <div className="result-bar">
+                                    <div
+                                        className="result-fill"
+                                        style={{
+                                            background: `linear-gradient(
+                                to right,
+                                #28a745 ${percentage}%,
+                                #dc3545 ${percentage}%
+                            )`
+                                        }}
+                                    />
+                                </div>
+
+                                {/* REVIEW SECTION MUST BE OUTSIDE THE BAR */}
+                                <div className="review-section">
+                                    <h3>Answer Review</h3>
+
+                                    {userAnswers.map((item, index) => (
+                                        <div key={index} className="review-item">
+                                            <h4
+                                                dangerouslySetInnerHTML={{ __html: item.question }}
+                                            />
+
+                                            <p>
+                                                Your Answer:
+                                                <span
+                                                    className={
+                                                        item.selected === item.correct
+                                                            ? "correct"
+                                                            : "wrong"
+                                                    }
+                                                    dangerouslySetInnerHTML={{ __html: item.selected }}
+                                                />
+                                            </p>
+
+                                            {item.selected !== item.correct && (
+                                                <p>
+                                                    Correct Answer:
+                                                    <span
+                                                        className="correct"
+                                                        dangerouslySetInnerHTML={{ __html: item.correct }}
+                                                    />
+                                                </p>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </>
+                        );
+                    })()}
+
+                    <button onClick={() => window.location.reload()} className="quizReloadebtn">
                         Play Again
                     </button>
                 </div>

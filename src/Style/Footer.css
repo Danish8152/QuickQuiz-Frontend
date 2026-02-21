@@ -4,7 +4,9 @@
 }
 
 .upperFooter {
-    padding: 2rem 0 2rem 7rem;
+    padding: 2rem 2rem 2rem 7rem;
+    display: flex;
+    
 }
 
 .footer-containt a {
@@ -23,15 +25,32 @@
     margin-top: 0.5rem;
 }
 
+.footer-logo
+{
+    max-width: 250px;
+    margin-right: 20px;
+}
+
 
 
 .lowerFooter {
     border-top: 1px solid #8e90949d;
 }
 
+.footerlist
+{
+    display: flex;
+    justify-content: space-around;
+}
+
 @media (max-width: 550px) {
     .social-media {
         display: none;
+    }
+
+    .upperFooter
+    {
+        padding-left: 2rem;
     }
 
 }
