@@ -35,6 +35,8 @@
 
 .lowerFooter {
     border-top: 1px solid #8e90949d;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .footerlist

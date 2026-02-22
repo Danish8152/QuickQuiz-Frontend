@@ -107,11 +107,11 @@ const Challenge = () => {
                             <div className="shadow-sm h-100">
                                 <div className="card-body">
                                     <div className="d-flex align-items-center mb-4 bg-transparent">
-                                        <Trophy className="text-warning me-3 bg-transparent" style={{ width: '32px', height: '32px' }} />
-                                        <h2 className="card-title h3 mb-0">Leaderboard</h2>
+                                        <Trophy className="text-warning me-3 ms-5 bg-transparent" style={{ width: '32px', height: '32px' }} />
+                                        <h2 className="card-title h3">Leaderboard</h2>
                                     </div>
 
-                                    <div className="d-flex flex-column gap-4">
+                                    <div className="d-flex flex-column gap-4 ms-5">
                                         {leaderboardData.map((participant) => (
                                             <div
                                                 key={participant.rank}

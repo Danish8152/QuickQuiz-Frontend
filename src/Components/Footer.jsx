@@ -21,7 +21,7 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="lowerFooter pt-3 pb-3">
+            <div className="lowerFooter">
                 <ul className="footerlist">
                     <li id="footerlist-1">Made With ❤️</li>
                     <li id="footerlist-2">©️ All Rights Recived: QuickQuiz</li>
