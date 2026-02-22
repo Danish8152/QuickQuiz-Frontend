@@ -10,6 +10,7 @@ import SignIn from './Components/SignIn'
 import ProfileSidebar from './Components/ProfileSlider'
 import Footer from './Components/Footer'
 import QuizPage from './Components/QuizPage'
+import ProtectedRoute from './Components/ProtectedRoute'
 
 import { useState, useEffect } from 'react'
 
@@ -35,37 +36,41 @@ function App() {
   return (
     <BrowserRouter>
       <div className='bg-black'>
-        <Navbar 
-          onSignUpClick={()=>setShowSignUp(true)} 
-          onSignInClick={()=>setShowSignIn(true)} 
-          user={user} 
-          handleSignOut={handleSignOut} 
-          showProfileSilder={()=> setProfileSlider(true)}
+        <Navbar
+          onSignUpClick={() => setShowSignUp(true)}
+          onSignInClick={() => setShowSignIn(true)}
+          user={user}
+          handleSignOut={handleSignOut}
+          showProfileSilder={() => setProfileSlider(true)}
         />
 
         <Routes>
-          <Route 
-            path="/" 
+          <Route
+            path="/"
             element={
               <>
-                <Hero/>
-                <Categories/>
-                <Challenge/>
+                <Hero />
+                <Categories />
+                <Challenge />
               </>
-            } 
+            }
           />
 
-          <Route 
-            path="/quiz/:category/:level" 
-            element={<QuizPage />} 
+          <Route
+            path="/quiz/:category/:level"
+            element={
+              <ProtectedRoute openLogin={() => setShowSignIn(true)}>
+                <QuizPage />
+              </ProtectedRoute>
+            }
           />
         </Routes>
 
-        <Footer/>
+        <Footer />
 
         {showSignUp && <SignUp onClose={() => setShowSignUp(false)} />}
-        {showSignIn && <SignIn onClose={()=> setShowSignIn(false)}/>}
-        {profileSlider && <ProfileSidebar user={user} onClose={()=> setProfileSlider(false)}/>}
+        {showSignIn && <SignIn onClose={() => setShowSignIn(false)} />}
+        {profileSlider && <ProfileSidebar user={user} onClose={() => setProfileSlider(false)} />}
       </div>
     </BrowserRouter>
   )
