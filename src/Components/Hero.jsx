@@ -7,7 +7,7 @@ import greenTick from "../assets/icons8-tick-48-greenTick.png"
 function Hero() {
 
     return (
-        <section className="bg-black flex items-center justify-between px-20 heroOuter" id="hero">
+        <section className="bg-black flex items-center justify-between heroOuter" id="hero">
             <div className="hero-info">
                 <h1 className="">Test your knowledge with smart quizzes across multiple subjects.</h1>
                 <div className="sub-hero">
@@ -27,7 +27,7 @@ function Hero() {
                 </ul>
             </div>
             <div className="hero-image">
-                <img src={heroImg} alt="Hero Img" style={{width: "900px", height: "700px"}}/>
+                <img src={heroImg} alt="Hero Img" style={{width: "800px", height: "600px"}}/>
             </div>
         </section>
     );
