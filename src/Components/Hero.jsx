@@ -3,6 +3,7 @@ import "../Style/hero.css"
 import yellowTick from "../assets/icons8-tick-48-yellow.png"
 import RedTick from "../assets/icons8-tick-48-redTick.png"
 import greenTick from "../assets/icons8-tick-48-greenTick.png"
+import Categories from "./Categories";
 
 function Hero() {
 
@@ -16,7 +17,9 @@ function Hero() {
                     <li className="hero-li"><img src={yellowTick} alt="Yellow Tick" className="tick" /> Smart Analytics </li>
                     <li className="hero-li"><img src={RedTick} alt="Red Tick" className="tick" /> Learn Anywhere </li>
                     <div className="hero-cta">
-                        <button className="hero-cta-btn">Start Quiz Now</button>
+                        <button className="hero-cta-btn" onClick={() =>
+                            document.getElementById("Categories").scrollIntoView({ behavior: "smooth" })
+                        }>Start Quiz Now</button>
                         <button className="cta-btn">Browse Categories</button>
                     </div>
                 </div>
@@ -27,7 +30,7 @@ function Hero() {
                 </ul>
             </div>
             <div className="hero-image">
-                <img src={heroImg} alt="Hero Img" style={{width: "800px", height: "600px"}}/>
+                <img src={heroImg} alt="Hero Img" style={{ width: "800px", height: "600px" }} />
             </div>
         </section>
     );

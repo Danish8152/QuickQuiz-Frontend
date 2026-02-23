@@ -66,7 +66,7 @@ function Categories() {
     };
 
     return (
-        <div className="outerCardContainer bg-black">
+        <div className="outerCardContainer bg-black" id="Categories">
             <h2>📈 Trending Quizzes - Start Now!</h2>
 
             <div className="cardContainer" ref={containerRef}>

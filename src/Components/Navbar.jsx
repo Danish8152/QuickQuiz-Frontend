@@ -1,13 +1,20 @@
 import '../Style/Navbar.css';
 import logo from "../assets/QuickQuiz-Logo.png";
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Nav({ onSignUpClick, onSignInClick, user, handleSignOut, showProfileSilder }) {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
         <div className='Header bg-black'>
-            <img src={logo} alt="QuickQuiq-logo" className='logo' />
+            <Link to="/">
+                <img
+                    src={logo}
+                    alt="QuickQuiz-logo"
+                    className="logo"
+                />
+            </Link>
 
             {/* Hamburger */}
             <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
