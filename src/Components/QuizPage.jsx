@@ -11,7 +11,7 @@ function QuizPage() {
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [timeLeft, setTimeLeft] = useState(1000);
+    const [timeLeft, setTimeLeft] = useState(30);
     const [userAnswers, setUserAnswers] = useState([]);
 
 
@@ -67,7 +67,7 @@ function QuizPage() {
 
         const timer = setTimeout(() => {
             setTimeLeft(timeLeft - 1);
-        }, 1000);
+        }, 30);
 
         return () => clearTimeout(timer);
     }, [timeLeft]);
